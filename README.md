@@ -14,3 +14,6 @@
 Er empfiehlt webpack, es braucht aber immer noch tsconfig 
 
 angular2 polyfills wird momentan benoetigt
+
+
+tsc --watch
