@@ -11,18 +11,18 @@ import  {FriendsService} from './friends'
 
 `
 })
-
-export class NameComponent{
-  @Input() _name:string;
+export class NameComponent {
+  @Input() name:string;
   @Output() nameChange:EventEmitter<string> = new EventEmitter();
-  changeName(){
 
-    this.nameChange.emit(this._name + ' !!!');
+
+  changeName() {
+    this.nameChange.emit(this.name + ' !!!');
   }
-  constructor(friendsService:FriendsService){
+
+  constructor(friendsService:FriendsService) {
     console.log(friendsService.list);
   }
-
 
 
 }
