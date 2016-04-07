@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "outDir": "dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+//  performance boost for compilation
+    "files": [
+        "typings/browser.d.ts",
+        "src/main.ts"
+    ]
+}

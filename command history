@@ -1,0 +1,8 @@
+npm init
+npm install angular2
+npm install  typescript typings  -g
+
+tsc -init  #erstellt tysconfig.json
+#in tsconfig.json kann exclude weggenommen werden und duch files ersetzt werden
+
+
