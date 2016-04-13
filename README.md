@@ -30,3 +30,17 @@ strongly recommends using fetch
 there is also angular2/http there will be a talk by ben tomorrow
 on an observable you can do toPromise(), 
 Observables can be canceld
+
+
+seed projects
+
+angular2-webpack-starter
+angular2-seed mgechev
+
+jspm does not work very well with typescript
+
+##Questions
+- module packaging
+- ts compile for tests?
+
+

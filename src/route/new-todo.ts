@@ -1,29 +1,40 @@
 import  {Component, Input, Output, EventEmitter} from 'angular2/core'
 import {TodoService} from '../services/todos'
 import {Todo} from '../services/todos'
+import {FormBuilder, Validators} from "angular2/common";
 
 
 @Component({
   selector: 'new-todo-input',
   styles: [],
-  template: `<div>
-
-                <input type="text" [(ngModel)]="newTodo.text"/>
-                <button (click)="saveTodo()">Save</button> 
+  template: `<form [ngFormModel]="myForm">
+<div *ngIf="myForm.valid">invalid!</div>
+                <input type="text" #newtodoinput ngControl="text"/>
+                <button (click)="saveTodo(newtodoinput)">Save</button> 
                 
-             </div>`
+             </form>`
 })
 export class NewTodoInput {
   newTodo:Todo = {};
   @Output() create:EventEmitter<Todo> = new EventEmitter();
-  constructor(){
+  myForm:ControlGroup;
+  constructor(fb:FormBuilder) {
+    this.myForm = fb.group({
+      text: ['', Validators.minLength(2)]
+    });
+    this.myForm.valid;
 
     this.newTodo.completed = false;
   }
-  saveTodo() {
+
+  saveTodo(el) {
     console.log("save pressed for todo", this.newTodo);
     this.newTodo.completed = false;
-    this.create.emit(this.newTodo);
+    this.create.emit({
+      text: el.value,
+      completed: false
+    });
+   // this.create.emit(this.newTodo);
     this.newTodo = {};
 
   }
